@@ -138,8 +138,14 @@ class Download(object):
 if __name__ == '__main__':
 
     DATA_PATH = './DATA/'
+    
     # Cargo los datos del CSV
     dataset_path = os.path.join(DATA_PATH, 'base-infoleg-normativa-nacional.csv')
+    
+    if(not os.path.isfile(dataset_path)):
+        print('La ruta',dataset_path,'no existe o no es valida.')
+        exit()
+    
     download = Download(dataset_path)
     download.start_download()
 
